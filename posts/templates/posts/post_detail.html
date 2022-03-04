@@ -19,6 +19,10 @@
         <p class="date_md">{{post.dt_created}} <span>{{post.dt_modified}}</span></p>
     </div>
         <div class="btn">
-        <div class="btn_list"><a href="{% url 'post-list' %}">목록으로</a></div>
+            <div class="btn_list"><a href="{% url 'post-list' %}">목록으로</a></div>
+            <div class="right-btn">
+                <div class="btn_modify"><a href="{% url 'post-update' post.id %}">수정하기</a></div>
+            </div>
+        </div>
     </div>
 {% endblock content %}
