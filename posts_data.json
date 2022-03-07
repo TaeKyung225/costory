@@ -1,0 +1,32 @@
+[
+{
+  "model": "posts.post",
+  "pk": 8,
+  "fields": {
+    "title": "\ubc18\uac11\ub465",
+    "content": "\ubc18\uac11\uc544\uc5ec \ubc18\uac00\uc6cc\uc694 \u3147\u3147\u3147\u3147",
+    "dt_created": "2022-03-07T04:21:22.058Z",
+    "dt_modified": "2022-03-07T04:21:22.058Z"
+  }
+},
+{
+    "model": "posts.post",
+    "pk": 9,
+    "fields": {
+      "title": "\ubc18\uac11\ub465",
+      "content": "\ubc18\uac11\uc544\uc5ec \ubc18\uac00\uc6cc\uc694 \u3147\u3147\u3147\u3147",
+      "dt_created": "2022-03-07T04:21:22.058Z",
+      "dt_modified": "2022-03-07T04:21:22.058Z"
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 10,
+    "fields": {
+      "title": "\ubc18\uac11\ub465",
+      "content": "\ubc18\uac11\uc544\uc5ec \ubc18\uac00\uc6cc\uc694 \u3147\u3147\u3147\u3147",
+      "dt_created": "2022-03-07T04:21:22.058Z",
+      "dt_modified": "2022-03-07T04:21:22.058Z"
+    }
+  }
+]

@@ -1,17 +1,25 @@
 from urllib import request
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
 from .forms import PostForm
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+from django.core.paginator import Paginator
 # Create your views here.
 def post_list(request):
     posts = Post.objects.all()
+    paginator = Paginator(posts, 6)
+    curr_page_number = request.GET.get('page')
+    if curr_page_number is None:
+        curr_page_number = 1
+    page = paginator.page(curr_page_number)
+    return render(request, 'posts/post_list.html',  {'page':page})
     context = {"posts" : posts}
     return render(request, 'posts/post_list.html', context)
 
 def post_detail(request, post_id):
-    post = Post.objects.get(id=post_id)
+    post = get_object_or_404(Post, id=post_id) 
+
     context = {"post" : post}
     return render(request, 'posts/post_detail.html', context)
 
@@ -26,7 +34,7 @@ def post_create(request):
     return render(request, 'posts/post_form.html', {'form': post_form})
 
 def post_update(request, post_id):
-    post = Post.objects.get(id=post_id)
+    post = get_object_or_404(Post, id=post_id) 
     if request.method == 'POST':
         post_form = PostForm(request.POST, instance=post)
         if post_form.is_valid():
@@ -37,7 +45,7 @@ def post_update(request, post_id):
     return render(request, 'posts/post_form.html', {'form': post_form})
 
 def post_delete(request, post_id):
-    post = Post.objects.get(id=post_id)
+    post = get_object_or_404(Post, id=post_id) 
     if request.method == 'POST':
         post.delete()
         return redirect('post-list')
